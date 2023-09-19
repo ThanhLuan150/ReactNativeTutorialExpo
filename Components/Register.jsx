@@ -12,7 +12,7 @@ const Register = () =>{
         <View style={style.view1}>
             <View>
                 <Text style={style.text1}>
-                    Sign up to Shh
+                    Sign up to Shh !
                 </Text>
                 <View style={style.view2}>
                     <View style={style.border}>
@@ -109,7 +109,7 @@ const style = StyleSheet.create({
     viewborder:{
         flexDirection:'row',
         gap:10,
-       paddingLeft:10,
+       paddingLeft:13,
        paddingTop:20,
        paddingBottom:20
     },
