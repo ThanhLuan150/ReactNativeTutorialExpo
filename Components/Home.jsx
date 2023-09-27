@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, TouchableOpacity, StyleSheet, Image } from 'react-native';
+import { Text, View, TouchableOpacity, StyleSheet, ImageBackground } from 'react-native';
 import Svg, { Rect } from 'react-native-svg';
 import { useNavigation } from '@react-navigation/native';
 
@@ -14,117 +14,59 @@ const Home = () => {
   }
 
   return (
-    <View style={styles.view1}>
-      <Text style={styles.text1}>Welcome to </Text>
-      <Text style={styles.text2}>Shh!</Text>
-      <Text style={styles.text3}>A Hub Where Whisper Echo </Text>
-      <Text style={styles.text4}>Loudest</Text>
-      <View style={styles.view2}>
-        <View>
-          <Svg width={45} height={93} viewBox="0 0 45 93" fill="none">
-            <Rect x={-167} width={212} height={93} rx={46.5} fill="#D9D9D9" />
-          </Svg>
-        </View>
-        <View  style={styles.view3} >
-          <Svg
-            width={130}
-            height={119}
-            viewBox="0 0 130 119"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <Rect x={-212} width={342} height={119} rx={59.5} fill="#D9D9D9" />
-          </Svg>
+    <ImageBackground  source={require('../assets/home.jpg')}style={styles.imageBackground}>
+      <View>
+        <Text style={styles.textWelcome}>Welcome to </Text>
+        <Text style={styles.textShh}>Shh!</Text>
+        <Text style={styles.textAhub}>A Hub Where Whisper Echo </Text>
+        <Text style={styles.textLoudest}>Loudest</Text>
+        <View style={styles.view7}>
+          <View style={styles.view8}>
+            <TouchableOpacity onPress={handleRegister} style={styles.button} >
+              <Text style={styles.buttonText}>Sign up</Text>
+            </TouchableOpacity>
+          </View>
+          <View >
+            <Text style={styles.textanaccount}>Already have an account?  <Text onPress={handleLogin}  style={{ color: "black" }}>Login</Text> </Text>
+          </View>
         </View>
       </View>
-      <View style={styles.view4}>
-        <View style={styles.view5}>
-          <Svg
-            width={74}
-            height={131}
-            viewBox="0 0 74 131"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <Rect width={210} height={131} rx={65.5} fill="#D9D9D9" />
-          </Svg>
-        </View>
-        <View style={styles.view6} >
-          <Svg
-            width={160}
-            height={148}
-            viewBox="0 0 160 148"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <Rect width={342} height={148} rx={74} fill="#D9D9D9" />
-          </Svg>
-        </View>
-      </View>
-      <View style={styles.view7}>
-        <View style={styles.view8}>
-          <TouchableOpacity onPress={handleRegister} style={styles.button} >
-            <Text style={styles.buttonText}>Sign up</Text>
-          </TouchableOpacity>
-        </View>
-        <View >
-          <Text style={styles.textanaccount}>Already have an account?  <Text onPress={handleLogin}  style={{ color: "black" }}>Login</Text> </Text>
-        </View>
-      </View>
-    </View>
+    </ImageBackground>
   )
 };
 
 const styles = StyleSheet.create({
-  view1:{
-    backgroundColor:'#8C5CB3',
-    fontFamily:'sans-serif',
-    fontWeight: 'bold'
+  imageBackground: {
+    flex: 1,
+    resizeMode: 'cover'
   },
-  text1:{
+  textWelcome:{
     paddingTop: 30,
     paddingLeft: 10, 
     fontSize: 40,
+    fontWeight:'bold',
     color: 'white'
 
   },
-  text2:{
+  textShh:{
     paddingLeft: 10,
-     fontSize: 40,
-      color: 'white'
+    fontSize: 40,
+    color: 'white',
+    fontWeight:'bold',
   },
-  text3:{
+  textAhub:{
     paddingTop: 5,
     paddingLeft: 10,
-    fontSize: 20
+    fontSize: 20,
+    fontWeight:'bold'
   },
-  text4:{
+  textLoudest:{
     paddingLeft: 10, 
-    fontSize: 20
+    fontSize: 20,
+    fontWeight:'bold'
   },
-  view2:{
-    paddingTop: 40
-  },
-  view3:{
-    position: 'relative',
-    bottom: 40
-  },
-  view4:{
-    position: "relative",
-    bottom: 150, 
-    left: 225
-  },
-  view5:{
-    position: "relative", 
-    left: 85 
-  },
-  view6:{
-    position: 'relative',
-     bottom: 40
-  }
-  ,view7:{
-    position: 'relative', 
-    bottom: 160
+  view7:{
+    paddingTop:320
   },
   view8:{
     paddingLeft:50, 
@@ -142,12 +84,14 @@ const styles = StyleSheet.create({
   buttonText: {
     color: 'white',
     fontSize: 20,
-    textAlign:"center"
+    textAlign:"center",
+    fontWeight:'bold'
   },
   textanaccount:{
     color: 'white', 
     textAlign: 'center', 
-    fontSize:15
+    fontSize:15,
+    fontWeight:'bold'
   }
   
 });

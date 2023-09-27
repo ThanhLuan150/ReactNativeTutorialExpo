@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, TouchableOpacity,  StyleSheet, TextInput } from 'react-native';
+import {ImageBackground, Text, View, TouchableOpacity,  StyleSheet, TextInput } from 'react-native';
 // import CheckBox from '@react-native-community/checkbox';
 import Svg, { Rect , Path} from 'react-native-svg';
 import { useNavigation } from '@react-navigation/native';
@@ -9,7 +9,7 @@ const Login = () =>{
         navigation.navigate('Signup'); // Chuyển đến màn hình "Register"
       };
     return(
-        <View style={style.view1}>
+        <ImageBackground  source={require('../assets/login1.jpg')}style={style.imageBackground}>
             <View>
                 <Text style={style.text1}>
                     Log in to Shh !
@@ -41,37 +41,40 @@ const Login = () =>{
                         />
                     </View>
                     <View style={style.viewinput1}>
-                        <Text style={{ fontSize:15 , fontWeight:'bold', paddingBottom:10  }}>Password</Text>
+                        <View style={{ flexDirection:'row',justifyContent:"space-between" }}>
+                            <Text style={{ fontSize:15 , fontWeight:'bold', paddingBottom:10   }}>Password</Text>
+                            <Text style={{  fontSize:15 , paddingBottom:10   }} >Forgot</Text>
+                        </View>
                         <TextInput style={style.textinput}
                             placeholder="Password"
                         />
                     </View>
-                </View>
-                <View  >
-                    <Text style={style.text3} >Forget Password</Text>
                 </View>
                 <View style={style.view3}>
                     <TouchableOpacity style={style.button} >
                         <Text style={style.buttonText}>Log In</Text>
                     </TouchableOpacity>
                 </View>
-                <View style={{ paddingTop:1,paddingBottom:20 }} >
-                    <Text style={style.textanaccount}>Don't have an account?  <Text onPress={handleRegister}  style={{ color: "black" }}>Sign up</Text> </Text>
+                <View style={{ paddingTop:20,paddingBottom:20 ,paddingRight:100 }} >
+                    <Text style={style.textanaccount}>Don't have an account?   </Text>
+                    <Text onPress={handleRegister}  style={{ color: "black" ,textAlign:'center',fontWeight:'bold' }}>Sign up</Text>
                 </View>
             </View>
-        </View>
+        </ImageBackground>
     )
 }
 const style = StyleSheet.create({
-    view1:{
-        backgroundColor:'#8C5CB3',
+    imageBackground: {
+        flex: 1,
+        resizeMode: 'cover'
       },
     text1:{
-        fontSize:38,
+        fontSize:30,
         color: 'white',
         paddingTop: 50,
         paddingBottom:20,
-        textAlign:'center'
+        textAlign:'center',
+        fontWeight:'bold'
     },
     view2:{
         paddingLeft:30,
@@ -97,9 +100,10 @@ const style = StyleSheet.create({
     text2:{
         fontSize:15,
         color:'white',
+        fontWeight:'bold'
     },
     viewborder:{
-    flexDirection:'row',
+      flexDirection:'row',
         gap:10,
        paddingLeft:25,
        paddingTop:20,
@@ -108,18 +112,19 @@ const style = StyleSheet.create({
     textborder:{
         fontSize:15,
         position:'relative',
-        top:8
+        top:8,
+        fontWeight:'bold'
     },
     border1:{
         width: '25%',
-        borderBottomWidth: 1,
+        borderBottomWidth: 2,
         borderBottomColor: 'black',
         borderTopWidth: 0,
         borderLeftWidth: 0,
         borderRightWidth: 0,
       },
       viewinput:{
-        paddingTop:40,
+        paddingTop:25,
         paddingLeft:30,
         paddingRight:30
       },
@@ -134,19 +139,20 @@ const style = StyleSheet.create({
         paddingTop:10,
         paddingBottom:10,
       },
-      text3:{
-        fontSize:15,
-        paddingLeft:30,
-        paddingRight:30,
-        paddingTop:10,
-        paddingBottom:10,
-        fontWeight:'bold'
-      },
+    //   text3:{
+    //     fontSize:15,
+    //     paddingLeft:30,
+    //     paddingRight:30,
+    //     paddingTop:10,
+    //     paddingBottom:10,
+    //     fontWeight:'bold',
+    //     paddingBottom:10 
+    //   },
       view3:{
         paddingLeft:30,
         paddingRight:30,
         paddingBottom:10,
-        paddingTop:105
+        paddingTop:40
       },
       button: {
         backgroundColor: 'black',
@@ -164,7 +170,8 @@ const style = StyleSheet.create({
       },textanaccount:{
         color: 'white', 
         textAlign: 'center', 
-        fontSize:15
+        fontSize:15,
+        fontWeight:'bold'
       }
 
       });

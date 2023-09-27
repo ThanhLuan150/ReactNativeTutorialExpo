@@ -12,9 +12,9 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="Login" component={Login} />
-        <Stack.Screen name="Signup" component={Register} />
+        <Stack.Screen name="Home" component={Home}   options={{ headerShown: false }} />
+        <Stack.Screen name="Login" component={Login}   options={{ headerShown: false }} />
+        <Stack.Screen name="Signup" component={Register}   options={{ headerShown: false }}/>
       </Stack.Navigator>
       <StatusBar style="auto" />
     </NavigationContainer>
@@ -27,5 +27,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#8C5CB3', 
     alignItems: 'center',
     justifyContent: 'center',
+    fontWeight:700
   },
 });

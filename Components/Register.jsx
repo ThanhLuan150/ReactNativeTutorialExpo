@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, TouchableOpacity,  StyleSheet, TextInput } from 'react-native';
+import { CheckBox,Text, View, TouchableOpacity,  StyleSheet, TextInput, ImageBackground } from 'react-native';
 // import CheckBox from '@react-native-community/checkbox';
 import Svg, { Rect , Path} from 'react-native-svg';
 import { useNavigation } from '@react-navigation/native';
@@ -9,7 +9,7 @@ const Register = () =>{
         navigation.navigate('Login');// Chuyển đến màn hình "Login"
       }
     return(
-        <View style={style.view1}>
+        <ImageBackground  source={require('../assets/signup.jpg')}style={style.imageBackground}>
             <View>
                 <Text style={style.text1}>
                     Sign up to Shh !
@@ -36,7 +36,7 @@ const Register = () =>{
                     <View style={{ paddingTop:5 }}>
                         <TextInput style={style.textinput}
                             placeholder="Enter your name"
-                            placeholderStyle={style.placeholder}
+                            placeholderTextColor='gray'
                         />
                     </View>
                     <View style={style.viewinput1}>
@@ -55,7 +55,7 @@ const Register = () =>{
                         />
                     </View>
                 </View>
-                <View  >
+                <View style={{ paddingBottom:10 }}>
                     <Text style={style.text3} >I agree with the Term of Service and Privacy policy</Text>
                 </View>
                 <View style={style.view3}>
@@ -64,22 +64,25 @@ const Register = () =>{
                     </TouchableOpacity>
                 </View>
                 <View style={{ paddingTop:1,paddingBottom:20 }} >
-                    <Text style={style.textanaccount}>Already have an account?  <Text onPress={handleLogin}  style={{ color: "black" }}>Login</Text> </Text>
+                    <Text style={style.textanaccount}>Already have an account?   </Text>
+                    <Text onPress={handleLogin}  style={{ color: "black" ,textAlign:'center',paddingLeft:130, fontSize:15,fontWeight:'bold' }}>Login</Text>
                 </View>
             </View>
-        </View>
+        </ImageBackground>
     )
 }
 const style = StyleSheet.create({
-    view1:{
-        backgroundColor:'#8C5CB3'
+    imageBackground: {
+        flex: 1,
+        resizeMode: 'cover'
       },
     text1:{
-        fontSize:38,
+        fontSize:30,
         color: 'white',
         paddingTop: 50,
         paddingBottom:20,
-        textAlign:'center'
+        textAlign:'center',
+        fontWeight:'bold'
     },
     view2:{
         paddingLeft:30,
@@ -105,10 +108,11 @@ const style = StyleSheet.create({
     text2:{
         fontSize:15,
         color:'white',
+        fontWeight:'bold'
     },
     viewborder:{
-        flexDirection:'row',
-        gap:10,
+       flexDirection:'row',
+       gap:10,
        paddingLeft:13,
        paddingTop:20,
        paddingBottom:20
@@ -116,11 +120,12 @@ const style = StyleSheet.create({
     textborder:{
         fontSize:15,
         position:'relative',
-        top:8
+        top:8,
+        fontWeight:'bold'
     },
     border1:{
         width: '25%',
-        borderBottomWidth: 1,
+        borderBottomWidth: 2,
         borderBottomColor: 'black',
         borderTopWidth: 0,
         borderLeftWidth: 0,
@@ -129,10 +134,11 @@ const style = StyleSheet.create({
       viewinput:{
         paddingTop:20,
         paddingLeft:30,
-        paddingRight:30
+        paddingRight:30,
+      
       },
       viewinput1:{
-        paddingTop:30
+        paddingTop:25
       },
       textinput:{
         width:'100%',
@@ -141,24 +147,32 @@ const style = StyleSheet.create({
         paddingLeft:30,
         paddingTop:10,
         paddingBottom:10,
+        
+      },
+      placeholder:{
+        color:'gray',
+        fontWeight:'bold'
       },
       text3:{
         fontSize:15,
-        paddingLeft:30,
-        paddingRight:30,
+        paddingLeft:40,
+        paddingRight:40,
         paddingTop:10,
-        paddingBottom:10
+        paddingBottom:10,
+        fontWeight:'bold'
       },
       view3:{
-        paddingLeft:30,
+        paddingLeft:150,
         paddingRight:30,
         paddingBottom:10,
         paddingTop:10
       },
       button: {
         backgroundColor: 'black',
-        paddingTop: 15,
-        paddingBottom: 15,
+        paddingTop: 20,
+        paddingBottom: 20,
+        paddingLeft:20,
+        paddingRight:20,
         fontSize:20,
         borderRadius: 30,
         width:'100%',
@@ -167,11 +181,17 @@ const style = StyleSheet.create({
       buttonText: {
         color: 'white',
         fontSize: 20,
-        textAlign:"center"
-      },textanaccount:{
+        textAlign:"center",
+        fontWeight:'bold'
+      },
+      textanaccount:{
         color: 'white', 
         textAlign: 'center', 
-        fontSize:15
+        fontSize:15,
+        paddingLeft:130,
+        textAlign:'center',
+        fontSize:15,
+        fontWeight:'bold'
       }
 
       });
